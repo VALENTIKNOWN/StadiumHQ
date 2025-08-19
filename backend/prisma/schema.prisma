@@ -1,0 +1,217 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+  output   = "../src/generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+/* =========================
+   Core Users / Auth
+   ========================= */
+
+model User {
+  id            String      @id @default(cuid())
+  email         String      @unique
+  displayName   String
+  passwordHash  String
+  createdAt     DateTime    @default(now())
+  updatedAt     DateTime    @updatedAt
+
+  membership    Membership?
+  posts         Post[]
+  sessions      Session[]
+}
+
+model Session {
+  id           String   @id @default(cuid())
+  userId       String
+  refreshHash  String
+  expiresAt    DateTime
+  createdAt    DateTime @default(now())
+  revokedAt    DateTime?
+
+  user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId])
+  @@index([expiresAt])
+}
+
+/* =========================
+   Clubs / Memberships
+   ========================= */
+
+model Team {
+  id        String        @id @default(cuid())
+  name      String
+  league    String?
+  country   String?
+  wikiUrl   String?
+  createdAt DateTime      @default(now())
+
+  stadiums  StadiumTeam[]
+  members   Membership[]
+  posts     Post[]
+
+  @@unique([name, country])
+}
+
+model Membership {
+  userId  String   @id
+  teamId  String
+  role    MembershipRole    @default(FAN)
+  status  MembershipStatus  @default(APPROVED)
+
+  user    User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  team    Team     @relation(fields: [teamId], references: [id], onDelete: Cascade)
+
+  @@index([teamId])
+}
+
+enum MembershipRole {
+  FAN
+  ADMIN
+}
+
+enum MembershipStatus {
+  PENDING
+  APPROVED
+  REJECTED
+}
+
+/* =========================
+   Stadiums & Teams
+   ========================= */
+
+model Stadium {
+  id                 String    @id @default(cuid())
+  name               String
+  city               String
+  country            String
+  wikiTitle          String?
+  wikiUrl            String?
+  wikiImage          String?
+  historySummary     String?
+  historyHtml        String?
+
+  latitude           Float?
+  longitude          Float?
+
+  locality           String?
+  borough            String?
+  metroArea          String?
+  region             String?
+  countryCode        String?
+
+  adminPath          String[]
+  locationTokens     String[]  @default([])
+  searchLocationText String?
+
+  createdAt          DateTime  @default(now())
+  updatedAt          DateTime  @updatedAt
+
+  teams              StadiumTeam[]
+  media              MediaItem[]
+  embeds             SocialEmbed[]
+  posts              Post[]
+
+  @@index([city])
+  @@index([country])
+  @@index([searchLocationText])
+}
+
+model StadiumTeam {
+  stadiumId String
+  teamId    String
+
+  stadium   Stadium @relation(fields: [stadiumId], references: [id], onDelete: Cascade)
+  team      Team    @relation(fields: [teamId], references: [id], onDelete: Cascade)
+
+  @@id([stadiumId, teamId])
+}
+
+/* =========================
+   Fan Posts & Attachments
+   ========================= */
+
+model Post {
+  id          String    @id @default(cuid())
+  userId      String
+  teamId      String
+  stadiumId   String
+  kind        PostKind  @default(TEXT)
+  content     String
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+
+  user        User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  team        Team      @relation(fields: [teamId], references: [id], onDelete: Cascade)
+  stadium     Stadium   @relation(fields: [stadiumId], references: [id], onDelete: Cascade)
+
+  media       MediaItem[]
+  embeds      SocialEmbed[]
+
+  @@index([teamId])
+  @@index([stadiumId])
+  @@index([createdAt])
+}
+
+enum PostKind {
+  TEXT
+  IMAGE
+  VIDEO
+  EMBED
+}
+
+model MediaItem {
+  id           String     @id @default(cuid())
+  stadiumId    String?
+  postId       String?
+  type         MediaType
+  title        String
+  description  String?
+  url          String
+  thumbnail    String?
+  createdAt    DateTime   @default(now())
+
+  stadium      Stadium?   @relation(fields: [stadiumId], references: [id], onDelete: Cascade)
+  post         Post?      @relation(fields: [postId], references: [id], onDelete: Cascade)
+
+  @@index([stadiumId])
+  @@index([postId])
+}
+
+enum MediaType {
+  VIDEO
+  IMAGE
+  AUDIO
+  TEXT
+}
+
+model SocialEmbed {
+  id         String         @id @default(cuid())
+  stadiumId  String?
+  postId     String?
+  provider   EmbedProvider
+  url        String
+  createdAt  DateTime       @default(now())
+
+  stadium    Stadium?       @relation(fields: [stadiumId], references: [id], onDelete: Cascade)
+  post       Post?          @relation(fields: [postId], references: [id], onDelete: Cascade)
+
+  @@index([stadiumId])
+  @@index([postId])
+}
+
+enum EmbedProvider {
+  YOUTUBE
+  TWITTER
+  INSTAGRAM
+  TIKTOK
+  OTHER
+}
