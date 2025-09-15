@@ -1,150 +1,52 @@
 <html>
   <head>
-    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="" />
-    <link
-      rel="stylesheet"
-      as="style"
-      onload="this.rel='stylesheet'"
-      href="https://fonts.googleapis.com/css2?display=swap&amp;family=Noto+Sans%3Awght%40400%3B500%3B700%3B900&amp;family=Spline+Sans%3Awght%40400%3B500%3B700"
-    />
-
-    <title>Stitch Design</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin />
+    <link rel="stylesheet" as="style" onload="this.rel='stylesheet'" href="https://fonts.googleapis.com/css2?display=swap&family=Noto+Sans:wght@400;500;700;900&family=Spline+Sans:wght@400;500;700" />
+    <title>Profile • StadiumHQ</title>
     <link rel="icon" type="image/x-icon" href="data:image/x-icon;base64," />
-
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script src="js/main.js" defer></script>
   </head>
   <body>
-    <div
-      class="relative flex size-full min-h-screen flex-col bg-[#f8fbfa] justify-between group/design-root overflow-x-hidden"
-      style='font-family: "Spline Sans", "Noto Sans", sans-serif;'
-    >
-      <div>
-        <div class="flex items-center bg-[#f8fbfa] p-4 pb-2 justify-between">
-          <div class="text-[#0e1a13] flex size-12 shrink-0 items-center" data-icon="ArrowLeft" data-size="24px" data-weight="regular">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" fill="currentColor" viewBox="0 0 256 256">
-              <path d="M224,128a8,8,0,0,1-8,8H59.31l58.35,58.34a8,8,0,0,1-11.32,11.32l-72-72a8,8,0,0,1,0-11.32l72-72a8,8,0,0,1,11.32,11.32L59.31,120H216A8,8,0,0,1,224,128Z"></path>
-            </svg>
-          </div>
-          <h2 class="text-[#0e1a13] text-lg font-bold leading-tight tracking-[-0.015em] flex-1 text-center pr-12">Profile</h2>
-        </div>
-        <div class="flex p-4 @container">
-          <div class="flex w-full flex-col gap-4 items-center">
-            <div class="flex gap-4 flex-col items-center">
-              <div
-                class="bg-center bg-no-repeat aspect-square bg-cover rounded-full min-h-32 w-32"
-                style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuC-QSfX47eGO8Waltjj4f8ydz5xUuMhhbNxvP0SV3aThO66bPgOqgWKeoPas5rAvqTcQer2bjKlnAcGClZnQfZc0RNYShpm2dif4HBoBjjvaOAEOJxHBpJasA6hMlrexKijT_456oZZaubnZAtOrUr8aaRnThpN5Nd5ksJzBLbc5f79Gcq9Elmc8sYMGsxQ1t3VryjZIs6ru7zLaJn-cMzd7vjb068HlWzpgEGeFdy82h5KyXgGYX0jqTE65dILQ-VhsQ7M716WMGqy");'
-              ></div>
-              <div class="flex flex-col items-center justify-center justify-center">
-                <p class="text-[#0e1a13] text-[22px] font-bold leading-tight tracking-[-0.015em] text-center">Ethan Carter</p>
-                <p class="text-[#51946c] text-base font-normal leading-normal text-center">@ethan_carter</p>
-                <p class="text-[#51946c] text-base font-normal leading-normal text-center">Joined 2021</p>
-              </div>
+    <div class="relative flex size-full min-h-screen flex-col bg-[#f8fbfa] overflow-x-hidden" style='font-family:"Spline Sans","Noto Sans",sans-serif'>
+      <app-header data-src="/partials/header.html" data-auth-src="/partials/auth.html"></app-header>
+
+      <div class="flex items-center bg-[#f8fbfa] p-4 pb-2 justify-between">
+        <button data-back class="text-[#0e1a13] flex size-12 items-center">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 256 256"><path d="M224,128a8,8,0,0,1-8,8H59.31l58.35,58.34a8,8,0,0,1-11.32,11.32l-72-72a8,8,0,0,1,0-11.32l72-72a8,8,0,0,1,11.32,11.32L59.31,120H216A8,8,0,0,1,224,128Z"/></svg>
+        </button>
+        <h2 class="text-[#0e1a13] text-lg font-bold flex-1 text-center pr-12">Profile</h2>
+      </div>
+
+      <div class="p-4 @container">
+        <div class="flex w-full flex-col gap-4 items-center">
+          <div class="flex gap-4 flex-col items-center">
+            <div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full min-h-32 w-32" style='background-image:url("https://lh3.googleusercontent.com/aida-public/AB6AXuC-QSfX47eGO8Waltjj4f8ydz5xUuMhhbNxvP0SV3aThO66bPgOqgWKeoPas5rAvqTcQer2bjKlnAcGClZnQfZc0RNYShpm2dif4HBoBjjvaOAEOJxHBpJasA6hMlrexKijT_456oZZaubnZAtOrUr8aaRnThpN5Nd5ksJzBLbc5f79Gcq9Elmc8sYMGsxQ1t3VryjZIs6ru7zLaJn-cMzd7vjb068HlWzpgEGeFdy82h5KyXgGYX0jqTE65dILQ-VhsQ7M716WMGqy");'></div>
+            <div class="flex flex-col items-center">
+              <p data-profile-name class="text-[#0e1a13] text-[22px] font-bold text-center">Loading…</p>
+              <p class="text-[#51946c] text-base text-center">@you</p>
             </div>
-          </div>
-        </div>
-        <div class="pb-3">
-          <div class="flex border-b border-[#d1e6d9] px-4 gap-8">
-            <a class="flex flex-col items-center justify-center border-b-[3px] border-b-[#38e07b] text-[#0e1a13] pb-[13px] pt-4" href="#">
-              <p class="text-[#0e1a13] text-sm font-bold leading-normal tracking-[0.015em]">Reviews</p>
-            </a>
-            <a class="flex flex-col items-center justify-center border-b-[3px] border-b-transparent text-[#51946c] pb-[13px] pt-4" href="#">
-              <p class="text-[#51946c] text-sm font-bold leading-normal tracking-[0.015em]">Bookmarks</p>
-            </a>
-            <a class="flex flex-col items-center justify-center border-b-[3px] border-b-transparent text-[#51946c] pb-[13px] pt-4" href="#">
-              <p class="text-[#51946c] text-sm font-bold leading-normal tracking-[0.015em]">Settings</p>
-            </a>
-          </div>
-        </div>
-        <h3 class="text-[#0e1a13] text-lg font-bold leading-tight tracking-[-0.015em] px-4 pb-2 pt-4">My Reviews</h3>
-        <div class="p-4">
-          <div class="flex items-stretch justify-between gap-4 rounded-xl">
-            <div class="flex flex-[2_2_0px] flex-col gap-4">
-              <div class="flex flex-col gap-1">
-                <p class="text-[#51946c] text-sm font-normal leading-normal">Stadium Review</p>
-                <p class="text-[#0e1a13] text-base font-bold leading-tight">The atmosphere was electric!</p>
-                <p class="text-[#51946c] text-sm font-normal leading-normal">
-                  I had an amazing time at the game. The crowd was really into it, and the energy was contagious. The stadium staff were friendly and helpful, and the food options
-                  were great. I'd definitely recommend this stadium to any sports fan.
-                </p>
-              </div>
-              <button
-                class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-8 px-4 flex-row-reverse bg-[#e8f2ec] text-[#0e1a13] text-sm font-medium leading-normal w-fit"
-              >
-                <span class="truncate">View</span>
-              </button>
-            </div>
-            <div
-              class="w-full bg-center bg-no-repeat aspect-video bg-cover rounded-xl flex-1"
-              style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBFia-p_LINC83uGm9rf6jYZEo7e0TuFMjH7u3gztWB-CPIfkCnnYXsPGESmP1VEm_pMrslQf-qHoHQ6oUFMt5fOI4j0BfcFRM1qJEKq_ewctuv3jwZAb4JJLHk8JxUzzLPx_a-OafH7T15bXioMDjylhBeQAXIdWYQMYZafcaACJoW20BS73Qi8MQwTzrCnqx0iC-nEK1yLQIreWQSDbMDP2QfpbjIDZoZm4t_qreGI1wSgXWe0QVZG8pqMj5ZPMihrC0LSiAiXbp6");'
-            ></div>
-          </div>
-        </div>
-        <div class="p-4">
-          <div class="flex items-stretch justify-between gap-4 rounded-xl">
-            <div class="flex flex-[2_2_0px] flex-col gap-4">
-              <div class="flex flex-col gap-1">
-                <p class="text-[#51946c] text-sm font-normal leading-normal">Stadium Review</p>
-                <p class="text-[#0e1a13] text-base font-bold leading-tight">Great experience overall</p>
-                <p class="text-[#51946c] text-sm font-normal leading-normal">
-                  The stadium was clean and well-maintained, and the seats were comfortable. The view of the field was excellent, and I didn't have any trouble seeing the game. The
-                  only downside was the parking situation, which was a bit chaotic. But overall, I had a great experience and would definitely come back.
-                </p>
-              </div>
-              <button
-                class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-8 px-4 flex-row-reverse bg-[#e8f2ec] text-[#0e1a13] text-sm font-medium leading-normal w-fit"
-              >
-                <span class="truncate">View</span>
-              </button>
-            </div>
-            <div
-              class="w-full bg-center bg-no-repeat aspect-video bg-cover rounded-xl flex-1"
-              style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBbuFsA-j2UsgiS6eQvDbguJZLCYD52wYiEBLr_QyXSmmxiowrsVollARIERDQgOPmNHksCBT2SVtjLeA2C-4-FQvsBkrT2Y6EZn_HtvBrGAhAmkyfZ9m8YChaCCjLM-BqfSMhzz_PDW4BAAD7IDG3el7W-wpVbOCml9juoKiQphQ76rj1Fm4dGOmiv-KpqegnYQ_dr3_QixAxX5tFesdIf6MPLfHOUahYv7aMPC2jrGRy9DKpH20724JTqveaddBCKNV5VAOG1QDNH");'
-            ></div>
           </div>
         </div>
       </div>
-      <div>
-        <div class="flex gap-2 border-t border-[#e8f2ec] bg-[#f8fbfa] px-4 pb-3 pt-2">
-          <a class="just flex flex-1 flex-col items-center justify-end gap-1 text-[#51946c]" href="#">
-            <div class="text-[#51946c] flex h-8 items-center justify-center" data-icon="House" data-size="24px" data-weight="regular">
-              <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" fill="currentColor" viewBox="0 0 256 256">
-                <path
-                  d="M218.83,103.77l-80-75.48a1.14,1.14,0,0,1-.11-.11,16,16,0,0,0-21.53,0l-.11.11L37.17,103.77A16,16,0,0,0,32,115.55V208a16,16,0,0,0,16,16H96a16,16,0,0,0,16-16V160h32v48a16,16,0,0,0,16,16h48a16,16,0,0,0,16-16V115.55A16,16,0,0,0,218.83,103.77ZM208,208H160V160a16,16,0,0,0-16-16H112a16,16,0,0,0-16,16v48H48V115.55l.11-.1L128,40l79.9,75.43.11.1Z"
-                ></path>
-              </svg>
+
+      <div class="px-4">
+        <div data-profile-stats class="grid grid-cols-2 md:grid-cols-4 gap-3"></div>
+      </div>
+
+      <h3 class="text-[#0e1a13] text-lg font-bold tracking-[-0.015em] px-4 pb-2 pt-4">My Reviews</h3>
+      <div class="p-4">
+        <div class="flex items-stretch justify-between gap-4 rounded-xl">
+          <div class="flex flex-[2_2_0px] flex-col gap-4">
+            <div class="flex flex-col gap-1">
+              <p class="text-[#51946c] text-sm">Stadium Review</p>
+              <p class="text-[#0e1a13] text-base font-bold leading-tight">Your latest review will appear here</p>
+              <p class="text-[#51946c] text-sm">Write a review from a stadium’s detail page.</p>
             </div>
-            <p class="text-[#51946c] text-xs font-medium leading-normal tracking-[0.015em]">Home</p>
-          </a>
-          <a class="just flex flex-1 flex-col items-center justify-end gap-1 text-[#51946c]" href="#">
-            <div class="text-[#51946c] flex h-8 items-center justify-center" data-icon="Compass" data-size="24px" data-weight="regular">
-              <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" fill="currentColor" viewBox="0 0 256 256">
-                <path
-                  d="M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm0,192a88,88,0,1,1,88-88A88.1,88.1,0,0,1,128,216ZM172.42,72.84l-64,32a8.05,8.05,0,0,0-3.58,3.58l-32,64A8,8,0,0,0,80,184a8.1,8.1,0,0,0,3.58-.84l64-32a8.05,8.05,0,0,0,3.58-3.58l32-64a8,8,0,0,0-10.74-10.74ZM138,138,97.89,158.11,118,118l40.15-20.07Z"
-                ></path>
-              </svg>
-            </div>
-            <p class="text-[#51946c] text-xs font-medium leading-normal tracking-[0.015em]">Explore</p>
-          </a>
-          <a class="just flex flex-1 flex-col items-center justify-end gap-1 text-[#51946c]" href="#">
-            <div class="text-[#51946c] flex h-8 items-center justify-center" data-icon="MagnifyingGlass" data-size="24px" data-weight="regular">
-              <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" fill="currentColor" viewBox="0 0 256 256">
-                <path d="M229.66,218.34l-50.07-50.06a88.11,88.11,0,1,0-11.31,11.31l50.06,50.07a8,8,0,0,0,11.32-11.32ZM40,112a72,72,0,1,1,72,72A72.08,72.08,0,0,1,40,112Z"></path>
-              </svg>
-            </div>
-            <p class="text-[#51946c] text-xs font-medium leading-normal tracking-[0.015em]">Search</p>
-          </a>
-          <a class="just flex flex-1 flex-col items-center justify-end gap-1 rounded-full text-[#0e1a13]" href="#">
-            <div class="text-[#0e1a13] flex h-8 items-center justify-center" data-icon="User" data-size="24px" data-weight="fill">
-              <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" fill="currentColor" viewBox="0 0 256 256">
-                <path
-                  d="M230.93,220a8,8,0,0,1-6.93,4H32a8,8,0,0,1-6.92-12c15.23-26.33,38.7-45.21,66.09-54.16a72,72,0,1,1,73.66,0c27.39,8.95,50.86,27.83,66.09,54.16A8,8,0,0,1,230.93,220Z"
-                ></path>
-              </svg>
-            </div>
-            <p class="text-[#0e1a13] text-xs font-medium leading-normal tracking-[0.015em]">Profile</p>
-          </a>
+            <a href="Search.html" class="flex h-8 px-4 items-center justify-center rounded-full bg-[#e8f2ec] text-[#0e1a13] text-sm font-medium w-fit">Find Stadiums</a>
+          </div>
+          <div class="w-full bg-center bg-no-repeat aspect-video bg-cover rounded-xl flex-1" style='background-image:url("https://lh3.googleusercontent.com/aida-public/AB6AXuBFia-p_LINC83uGm9rf6jYZEo7e0TuFMjH7u3gztWB-CPIfkCnnYXsPGESmP1VEm_pMrslQf-qHoHQ6oUFMt5fOI4j0BfcFRM1qJEKq_ewctuv3jwZAb4JJLHk8JxUzzLPx_a-OafH7T15bXioMDjylhBeQAXIdWYQMYZafcaACJoW20BS73Qi8MQwTzrCnqx0iC-nEK1yLQIreWQSDbMDP2QfpbjIDZoZm4t_qreGI1wSgXWe0QVZG8pqMj5ZPMihrC0LSiAiXbp6");'></div>
         </div>
-        <div class="h-5 bg-[#f8fbfa]"></div>
       </div>
     </div>
   </body>

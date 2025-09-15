@@ -1,0 +1,29 @@
+<header class="bg-[#f8fbfa] border-b border-[#d1e6d9]">
+  <div class="mx-auto max-w-7xl px-4 py-3 flex items-center justify-between">
+    <a href="Homepage.html" class="text-[#0e1a13] text-lg font-extrabold tracking-tight">StadiumHQ</a>
+    <button id="nav-toggle" class="md:hidden p-2 rounded-lg text-[#0e1a13]" aria-expanded="false" aria-controls="nav-menu">
+      <span class="sr-only">Toggle menu</span>
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="currentColor" viewBox="0 0 256 256"><path d="M40,64a8,8,0,0,1,8-8H208a8,8,0,0,1,0,16H48A8,8,0,0,1,40,64ZM40,128a8,8,0,0,1,8-8H208a8,8,0,0,1,0,16H48A8,8,0,0,1,40,128Zm0,64a8,8,0,0,1,8-8H208a8,8,0,0,1,0,16H48A8,8,0,0,1,40,192Z"/></svg>
+    </button>
+    <nav id="nav-menu" class="hidden md:flex gap-4 items-center">
+      <a data-nav="Homepage.html" href="Homepage.html" class="px-3 py-2 rounded-lg text-sm font-medium text-[#0e1a13] hover:bg-[#e8f2ec]">Home</a>
+      <a data-nav="Search.html" href="Search.html" class="px-3 py-2 rounded-lg text-sm font-medium text-[#0e1a13] hover:bg-[#e8f2ec]">Search</a>
+      <!-- <a data-nav="Map.html" href="Map.html" class="px-3 py-2 rounded-lg text-sm font-medium text-[#0e1a13] hover:bg-[#e8f2ec]">Map</a> -->
+      <!-- <a data-nav="Reviews.html" href="Reviews.html" class="px-3 py-2 rounded-lg text-sm font-medium text-[#0e1a13] hover:bg-[#e8f2ec]">Reviews</a> -->
+      <a data-nav="Profiles.html" data-requires-auth href="Profiles.html" class="px-3 py-2 rounded-lg text-sm font-medium text-[#0e1a13] hover:bg-[#e8f2ec]">Profile</a>
+      <button data-open-auth data-auth-mode="signin" data-auth-show="guest" class="ml-2 px-3 py-2 rounded-lg text-sm font-semibold text-white bg-[#0e1a13] hover:opacity-90">Sign In</button>
+      <button data-signout data-auth-show="authed" class="ml-2 px-3 py-2 rounded-lg text-sm font-semibold text-[#0e1a13] border border-[#d1e6d9] hover:bg-[#e8f2ec] hidden">Sign Out</button>
+    </nav>
+  </div>
+  <nav id="nav-menu-mobile" class="md:hidden hidden border-t border-[#d1e6d9]">
+    <div class="px-4 py-2 flex flex-col gap-1">
+      <a data-nav="Homepage.html" href="Homepage.html" class="px-3 py-2 rounded-lg text-sm font-medium text-[#0e1a13] hover:bg-[#e8f2ec]">Home</a>
+      <a data-nav="Search.html" href="Search.html" class="px-3 py-2 rounded-lg text-sm font-medium text-[#0e1a13] hover:bg-[#e8f2ec]">Search</a>
+      <!-- <a data-nav="Map.html" href="Map.html" class="px-3 py-2 rounded-lg text-sm font-medium text-[#0e1a13] hover:bg-[#e8f2ec]">Map</a> -->
+      <!-- <a data-nav="Reviews.html" href="Reviews.html" class="px-3 py-2 rounded-lg text-sm font-medium text-[#0e1a13] hover:bg-[#e8f2ec]">Reviews</a> -->
+      <a data-nav="Profiles.html" data-requires-auth href="Profiles.html" class="px-3 py-2 rounded-lg text-sm font-medium text-[#0e1a13] hover:bg-[#e8f2ec]">Profile</a>
+      <button data-open-auth data-auth-mode="signin" data-auth-show="guest" class="mt-1 px-3 py-2 rounded-lg text-sm font-semibold text-white bg-[#0e1a13]">Sign In</button>
+      <button data-signout data-auth-show="authed" class="mt-1 px-3 py-2 rounded-lg text-sm font-semibold text-[#0e1a13] border border-[#d1e6d9] hidden">Sign Out</button>
+    </div>
+  </nav>
+</header>

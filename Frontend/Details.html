@@ -1,332 +1,61 @@
 <html>
   <head>
-    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="" />
-    <link
-      rel="stylesheet"
-      as="style"
-      onload="this.rel='stylesheet'"
-      href="https://fonts.googleapis.com/css2?display=swap&amp;family=Noto+Sans%3Awght%40400%3B500%3B700%3B900&amp;family=Spline+Sans%3Awght%40400%3B500%3B700"
-    />
-
-    <title>Stitch Design</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin />
+    <link rel="stylesheet" as="style" onload="this.rel='stylesheet'" href="https://fonts.googleapis.com/css2?display=swap&family=Noto+Sans:wght@400;500;700;900&family=Spline+Sans:wght@400;500;700" />
+    <title>Details • StadiumHQ</title>
     <link rel="icon" type="image/x-icon" href="data:image/x-icon;base64," />
-
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script src="js/main.js" defer></script>
   </head>
   <body>
-    <div
-      class="relative flex size-full min-h-screen flex-col bg-[#f8fbfa] justify-between group/design-root overflow-x-hidden"
-      style='font-family: "Spline Sans", "Noto Sans", sans-serif;'
-    >
-      <div>
-        <div class="flex items-center bg-[#f8fbfa] p-4 pb-2 justify-between">
-          <div class="text-[#0e1a13] flex size-12 shrink-0 items-center" data-icon="ArrowLeft" data-size="24px" data-weight="regular">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" fill="currentColor" viewBox="0 0 256 256">
-              <path d="M224,128a8,8,0,0,1-8,8H59.31l58.35,58.34a8,8,0,0,1-11.32,11.32l-72-72a8,8,0,0,1,0-11.32l72-72a8,8,0,0,1,11.32,11.32L59.31,120H216A8,8,0,0,1,224,128Z"></path>
-            </svg>
-          </div>
-          <h2 class="text-[#0e1a13] text-lg font-bold leading-tight tracking-[-0.015em] flex-1 text-center pr-12">StadiumHQ</h2>
-        </div>
-        <div class="@container">
-          <div class="@[480px]:px-4 @[480px]:py-3">
-            <div
-              class="bg-cover bg-center flex flex-col justify-end overflow-hidden bg-[#f8fbfa] @[480px]:rounded-xl min-h-80"
-              style='background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0) 25%), url("https://lh3.googleusercontent.com/aida-public/AB6AXuDrWP3Azl67-siLdhw2SNY-ZmeoDpvPbmJ2aRtRtj8WJRlG4MaN74gkFD-IFNTm5uja8pBC6QSnwTDvh9LBioaRgCQO_QoZoc_CvUS3MnH1XflRYCOr8zmkTxnRQoHcoGZzVqqXrjWUUlT8GsvSk7S2HQRXDeIHXmj7h8cMOTi8hph3aTthNIR9FNIR4Gwh-gTvlXJ_ZPJXc1gw7MyL23hZE4X64DHnDBI7j4T-yXXSyjcxmB1wOKKNTCsaLqjnMScqS5fG1ZIgzcr1");'
-            >
-              <div class="flex p-4"><p class="text-white tracking-light text-[28px] font-bold leading-tight">Wembley Stadium</p></div>
+    <div class="relative flex size-full min-h-screen flex-col bg-[#f8fbfa] overflow-x-hidden" style='font-family:"Spline Sans","Noto Sans",sans-serif'>
+      <app-header data-src="/partials/header.html" data-auth-src="/partials/auth.html"></app-header>
+
+      <div class="@container">
+        <div class="@[480px]:px-4 @[480px]:py-3">
+          <div class="bg-[#f8fbfa] @[480px]:rounded-xl overflow-hidden">
+            <img data-stadium-hero src="" alt="" class="w-full aspect-video object-cover" />
+            <div class="flex p-4">
+              <p data-stadium-title class="text-[#0e1a13] tracking-light text-[28px] font-bold leading-tight">Loading…</p>
             </div>
           </div>
-        </div>
-        <h2 class="text-[#0e1a13] text-[22px] font-bold leading-tight tracking-[-0.015em] px-4 pb-3 pt-5">About</h2>
-        <p class="text-[#0e1a13] text-base font-normal leading-normal pb-3 pt-1 px-4">
-          Wembley Stadium is a football stadium in Wembley, London. It opened in 2007 on the site of the original Wembley Stadium, which was demolished from 2002 to 2003. The
-          stadium hosts major football matches including home matches of the England national football team, and the FA Cup Final.
-        </p>
-        <h2 class="text-[#0e1a13] text-[22px] font-bold leading-tight tracking-[-0.015em] px-4 pb-3 pt-5">Gallery</h2>
-        <div class="flex overflow-y-auto [-ms-scrollbar-style:none] [scrollbar-width:none] [&amp;::-webkit-scrollbar]:hidden">
-          <div class="flex items-stretch p-4 gap-3">
-            <div class="flex h-full flex-1 flex-col gap-4 rounded-lg min-w-40">
-              <div
-                class="w-full bg-center bg-no-repeat aspect-square bg-cover rounded-xl flex flex-col"
-                style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAJYsjN1j-W_sHQi8RQmokY_Kz2UhXcPPkIadx29wBmvLJzUa03JsywikW9b-cuFTTZBOkOfn5WcqQdMHa18poqAAoX5Pb8MP8MJTdOe6x3VYLyrbdr7i510BiGqjnP6fzCaBTS5TudOxbi_TA6k4g2IDuHK8JLcdGJ7_9H0QVR2DIMp5_0kA_xeh2IR6sNpLM5vngYW9z94zPGsM5ON07150oae_khlPhyEtQ3F2KGRNBbm_hwtIGtHntLbMhHg2pDufjR7S9rRp0i");'
-              ></div>
-              <p class="text-[#0e1a13] text-base font-medium leading-normal">Interior</p>
-            </div>
-            <div class="flex h-full flex-1 flex-col gap-4 rounded-lg min-w-40">
-              <div
-                class="w-full bg-center bg-no-repeat aspect-square bg-cover rounded-xl flex flex-col"
-                style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAyejfI-kcsU_6gLjDe13U1fI8-kJ8F-HVPPt4KMNfoFtiH5mhybS9bYcWxgjpGhhcAYIr9Wihzma84h1pBqaa17PeSqmvrLOAeW9RI1_S0UG297KayX--QCwHfIwY_pqyBtet-9uo9MafECRlk5cPeLOZld6qbtjzLi6rtIHnnesvT3UMh7Gfgc9160XGoqPZz97zstpSZNufXbdgczbSIuotTe3F9fQMADA7NafZU0dQH_zYXguKe_hjZ3O1z3bO7uJBUWQeFv4l3");'
-              ></div>
-              <p class="text-[#0e1a13] text-base font-medium leading-normal">Exterior</p>
-            </div>
-            <div class="flex h-full flex-1 flex-col gap-4 rounded-lg min-w-40">
-              <div
-                class="w-full bg-center bg-no-repeat aspect-square bg-cover rounded-xl flex flex-col"
-                style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuArpwfQx_P4vKqChRj24hjKQa2nTmEHr1H7bnmxVGlRgffDbvuILLEBb8PggN1ium5wtu45aENmMRSA1kEGbfTGuhhsSIpFzSASWGVasfNia1BZvjK6sRNCAn3IJD--iw_CJspzTyPuJw8wreIcd7ISHRJIEKjhKrINLg3Aa_NcL2No0UnvDN4oF8nykStx3cAT4yYnTRniIofdTeH_eezAahwqN6XWoVN4Xar_44Yf_YzEA7mgoCfQ3vjNwDPVGp_OgItWPqha7vgm");'
-              ></div>
-              <p class="text-[#0e1a13] text-base font-medium leading-normal">Event</p>
-            </div>
-          </div>
-        </div>
-        <h2 class="text-[#0e1a13] text-[22px] font-bold leading-tight tracking-[-0.015em] px-4 pb-3 pt-5">Reviews</h2>
-        <div class="flex flex-wrap gap-x-8 gap-y-6 p-4">
-          <div class="flex flex-col gap-2">
-            <p class="text-[#0e1a13] text-4xl font-black leading-tight tracking-[-0.033em]">4.5</p>
-            <div class="flex gap-0.5">
-              <div class="text-[#38e07b]" data-icon="Star" data-size="18px" data-weight="fill">
-                <svg xmlns="http://www.w3.org/2000/svg" width="18px" height="18px" fill="currentColor" viewBox="0 0 256 256">
-                  <path
-                    d="M234.5,114.38l-45.1,39.36,13.51,58.6a16,16,0,0,1-23.84,17.34l-51.11-31-51,31a16,16,0,0,1-23.84-17.34L66.61,153.8,21.5,114.38a16,16,0,0,1,9.11-28.06l59.46-5.15,23.21-55.36a15.95,15.95,0,0,1,29.44,0h0L166,81.17l59.44,5.15a16,16,0,0,1,9.11,28.06Z"
-                  ></path>
-                </svg>
-              </div>
-              <div class="text-[#38e07b]" data-icon="Star" data-size="18px" data-weight="fill">
-                <svg xmlns="http://www.w3.org/2000/svg" width="18px" height="18px" fill="currentColor" viewBox="0 0 256 256">
-                  <path
-                    d="M234.5,114.38l-45.1,39.36,13.51,58.6a16,16,0,0,1-23.84,17.34l-51.11-31-51,31a16,16,0,0,1-23.84-17.34L66.61,153.8,21.5,114.38a16,16,0,0,1,9.11-28.06l59.46-5.15,23.21-55.36a15.95,15.95,0,0,1,29.44,0h0L166,81.17l59.44,5.15a16,16,0,0,1,9.11,28.06Z"
-                  ></path>
-                </svg>
-              </div>
-              <div class="text-[#38e07b]" data-icon="Star" data-size="18px" data-weight="fill">
-                <svg xmlns="http://www.w3.org/2000/svg" width="18px" height="18px" fill="currentColor" viewBox="0 0 256 256">
-                  <path
-                    d="M234.5,114.38l-45.1,39.36,13.51,58.6a16,16,0,0,1-23.84,17.34l-51.11-31-51,31a16,16,0,0,1-23.84-17.34L66.61,153.8,21.5,114.38a16,16,0,0,1,9.11-28.06l59.46-5.15,23.21-55.36a15.95,15.95,0,0,1,29.44,0h0L166,81.17l59.44,5.15a16,16,0,0,1,9.11,28.06Z"
-                  ></path>
-                </svg>
-              </div>
-              <div class="text-[#38e07b]" data-icon="Star" data-size="18px" data-weight="fill">
-                <svg xmlns="http://www.w3.org/2000/svg" width="18px" height="18px" fill="currentColor" viewBox="0 0 256 256">
-                  <path
-                    d="M234.5,114.38l-45.1,39.36,13.51,58.6a16,16,0,0,1-23.84,17.34l-51.11-31-51,31a16,16,0,0,1-23.84-17.34L66.61,153.8,21.5,114.38a16,16,0,0,1,9.11-28.06l59.46-5.15,23.21-55.36a15.95,15.95,0,0,1,29.44,0h0L166,81.17l59.44,5.15a16,16,0,0,1,9.11,28.06Z"
-                  ></path>
-                </svg>
-              </div>
-              <div class="text-[#38e07b]" data-icon="Star" data-size="18px" data-weight="regular">
-                <svg xmlns="http://www.w3.org/2000/svg" width="18px" height="18px" fill="currentColor" viewBox="0 0 256 256">
-                  <path
-                    d="M239.2,97.29a16,16,0,0,0-13.81-11L166,81.17,142.72,25.81h0a15.95,15.95,0,0,0-29.44,0L90.07,81.17,30.61,86.32a16,16,0,0,0-9.11,28.06L66.61,153.8,53.09,212.34a16,16,0,0,0,23.84,17.34l51-31,51.11,31a16,16,0,0,0,23.84-17.34l-13.51-58.6,45.1-39.36A16,16,0,0,0,239.2,97.29Zm-15.22,5-45.1,39.36a16,16,0,0,0-5.08,15.71L187.35,216v0l-51.07-31a15.9,15.9,0,0,0-16.54,0l-51,31h0L82.2,157.4a16,16,0,0,0-5.08-15.71L32,102.35a.37.37,0,0,1,0-.09l59.44-5.14a16,16,0,0,0,13.35-9.75L128,32.08l23.2,55.29a16,16,0,0,0,13.35,9.75L224,102.26S224,102.32,224,102.33Z"
-                  ></path>
-                </svg>
-              </div>
-            </div>
-            <p class="text-[#0e1a13] text-base font-normal leading-normal">120 reviews</p>
-          </div>
-          <div class="grid min-w-[200px] max-w-[400px] flex-1 grid-cols-[20px_1fr_40px] items-center gap-y-3">
-            <p class="text-[#0e1a13] text-sm font-normal leading-normal">5</p>
-            <div class="flex h-2 flex-1 overflow-hidden rounded-full bg-[#d1e6d9]"><div class="rounded-full bg-[#38e07b]" style="width: 40%;"></div></div>
-            <p class="text-[#51946c] text-sm font-normal leading-normal text-right">40%</p>
-            <p class="text-[#0e1a13] text-sm font-normal leading-normal">4</p>
-            <div class="flex h-2 flex-1 overflow-hidden rounded-full bg-[#d1e6d9]"><div class="rounded-full bg-[#38e07b]" style="width: 30%;"></div></div>
-            <p class="text-[#51946c] text-sm font-normal leading-normal text-right">30%</p>
-            <p class="text-[#0e1a13] text-sm font-normal leading-normal">3</p>
-            <div class="flex h-2 flex-1 overflow-hidden rounded-full bg-[#d1e6d9]"><div class="rounded-full bg-[#38e07b]" style="width: 15%;"></div></div>
-            <p class="text-[#51946c] text-sm font-normal leading-normal text-right">15%</p>
-            <p class="text-[#0e1a13] text-sm font-normal leading-normal">2</p>
-            <div class="flex h-2 flex-1 overflow-hidden rounded-full bg-[#d1e6d9]"><div class="rounded-full bg-[#38e07b]" style="width: 10%;"></div></div>
-            <p class="text-[#51946c] text-sm font-normal leading-normal text-right">10%</p>
-            <p class="text-[#0e1a13] text-sm font-normal leading-normal">1</p>
-            <div class="flex h-2 flex-1 overflow-hidden rounded-full bg-[#d1e6d9]"><div class="rounded-full bg-[#38e07b]" style="width: 5%;"></div></div>
-            <p class="text-[#51946c] text-sm font-normal leading-normal text-right">5%</p>
-          </div>
-        </div>
-        <div class="flex flex-col gap-8 overflow-x-hidden bg-[#f8fbfa] p-4">
-          <div class="flex flex-col gap-3 bg-[#f8fbfa]">
-            <div class="flex items-center gap-3">
-              <div
-                class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10"
-                style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuA4dpNfzkj1Li5D6dVKQYmgqyvqAj40tWWEH9yM3PsSIVH9oHS90eM2dwMwEg7SG__yobyc6_jZGM551ScEnv3X_Cg6XfOJORgEBJAWfAqziiotn88U8UQZtahJca_a_XbsWfyNcoqkgP0IIX09gpFBypprCj91pT7CBOv2vxQv5BnA1jHIYvQ6lt0c81A6CL_Rxq8Hy8MSSr4y2V5nEqSx-lazlD2qJ836a_YTGKOXtqlV2k4y5Xtmth6-9i_l5OyssM9b8S6WORFY");'
-              ></div>
-              <div class="flex-1">
-                <p class="text-[#0e1a13] text-base font-medium leading-normal">Ethan Harper</p>
-                <p class="text-[#51946c] text-sm font-normal leading-normal">2 months ago</p>
-              </div>
-            </div>
-            <div class="flex gap-0.5">
-              <div class="text-[#38e07b]" data-icon="Star" data-size="20px" data-weight="fill">
-                <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" fill="currentColor" viewBox="0 0 256 256">
-                  <path
-                    d="M234.5,114.38l-45.1,39.36,13.51,58.6a16,16,0,0,1-23.84,17.34l-51.11-31-51,31a16,16,0,0,1-23.84-17.34L66.61,153.8,21.5,114.38a16,16,0,0,1,9.11-28.06l59.46-5.15,23.21-55.36a15.95,15.95,0,0,1,29.44,0h0L166,81.17l59.44,5.15a16,16,0,0,1,9.11,28.06Z"
-                  ></path>
-                </svg>
-              </div>
-              <div class="text-[#38e07b]" data-icon="Star" data-size="20px" data-weight="fill">
-                <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" fill="currentColor" viewBox="0 0 256 256">
-                  <path
-                    d="M234.5,114.38l-45.1,39.36,13.51,58.6a16,16,0,0,1-23.84,17.34l-51.11-31-51,31a16,16,0,0,1-23.84-17.34L66.61,153.8,21.5,114.38a16,16,0,0,1,9.11-28.06l59.46-5.15,23.21-55.36a15.95,15.95,0,0,1,29.44,0h0L166,81.17l59.44,5.15a16,16,0,0,1,9.11,28.06Z"
-                  ></path>
-                </svg>
-              </div>
-              <div class="text-[#38e07b]" data-icon="Star" data-size="20px" data-weight="fill">
-                <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" fill="currentColor" viewBox="0 0 256 256">
-                  <path
-                    d="M234.5,114.38l-45.1,39.36,13.51,58.6a16,16,0,0,1-23.84,17.34l-51.11-31-51,31a16,16,0,0,1-23.84-17.34L66.61,153.8,21.5,114.38a16,16,0,0,1,9.11-28.06l59.46-5.15,23.21-55.36a15.95,15.95,0,0,1,29.44,0h0L166,81.17l59.44,5.15a16,16,0,0,1,9.11,28.06Z"
-                  ></path>
-                </svg>
-              </div>
-              <div class="text-[#38e07b]" data-icon="Star" data-size="20px" data-weight="fill">
-                <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" fill="currentColor" viewBox="0 0 256 256">
-                  <path
-                    d="M234.5,114.38l-45.1,39.36,13.51,58.6a16,16,0,0,1-23.84,17.34l-51.11-31-51,31a16,16,0,0,1-23.84-17.34L66.61,153.8,21.5,114.38a16,16,0,0,1,9.11-28.06l59.46-5.15,23.21-55.36a15.95,15.95,0,0,1,29.44,0h0L166,81.17l59.44,5.15a16,16,0,0,1,9.11,28.06Z"
-                  ></path>
-                </svg>
-              </div>
-              <div class="text-[#38e07b]" data-icon="Star" data-size="20px" data-weight="fill">
-                <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" fill="currentColor" viewBox="0 0 256 256">
-                  <path
-                    d="M234.5,114.38l-45.1,39.36,13.51,58.6a16,16,0,0,1-23.84,17.34l-51.11-31-51,31a16,16,0,0,1-23.84-17.34L66.61,153.8,21.5,114.38a16,16,0,0,1,9.11-28.06l59.46-5.15,23.21-55.36a15.95,15.95,0,0,1,29.44,0h0L166,81.17l59.44,5.15a16,16,0,0,1,9.11,28.06Z"
-                  ></path>
-                </svg>
-              </div>
-            </div>
-            <p class="text-[#0e1a13] text-base font-normal leading-normal">
-              Amazing stadium with a great atmosphere. The facilities are top-notch, and the view from my seat was perfect.
-            </p>
-            <div class="flex gap-9 text-[#51946c]">
-              <button class="flex items-center gap-2">
-                <div class="text-inherit" data-icon="ThumbsUp" data-size="20px" data-weight="regular">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" fill="currentColor" viewBox="0 0 256 256">
-                    <path
-                      d="M234,80.12A24,24,0,0,0,216,72H160V56a40,40,0,0,0-40-40,8,8,0,0,0-7.16,4.42L75.06,96H32a16,16,0,0,0-16,16v88a16,16,0,0,0,16,16H204a24,24,0,0,0,23.82-21l12-96A24,24,0,0,0,234,80.12ZM32,112H72v88H32ZM223.94,97l-12,96a8,8,0,0,1-7.94,7H88V105.89l36.71-73.43A24,24,0,0,1,144,56V80a8,8,0,0,0,8,8h64a8,8,0,0,1,7.94,9Z"
-                    ></path>
-                  </svg>
-                </div>
-                <p class="text-inherit">5</p>
-              </button>
-              <button class="flex items-center gap-2">
-                <div class="text-inherit" data-icon="ThumbsDown" data-size="20px" data-weight="regular">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" fill="currentColor" viewBox="0 0 256 256">
-                    <path
-                      d="M239.82,157l-12-96A24,24,0,0,0,204,40H32A16,16,0,0,0,16,56v88a16,16,0,0,0,16,16H75.06l37.78,75.58A8,8,0,0,0,120,240a40,40,0,0,0,40-40V184h56a24,24,0,0,0,23.82-27ZM72,144H32V56H72Zm150,21.29a7.88,7.88,0,0,1-6,2.71H152a8,8,0,0,0-8,8v24a24,24,0,0,1-19.29,23.54L88,150.11V56H204a8,8,0,0,1,7.94,7l12,96A7.87,7.87,0,0,1,222,165.29Z"
-                    ></path>
-                  </svg>
-                </div>
-                <p class="text-inherit">1</p>
-              </button>
-            </div>
-          </div>
-          <div class="flex flex-col gap-3 bg-[#f8fbfa]">
-            <div class="flex items-center gap-3">
-              <div
-                class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10"
-                style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAnpjzvpu_a_OwTY44YI6E9VYVu3mDkdcCr73f1o3-bn06o9yQMDgPHUGc0efiZhOs8bRB7bV93HKJFzjt_M8Mq7zK222RfuflVmZUtFtwSi3QhXf_h5K4yhyt55CNAx7jmINvhOLRqz9Rku1JvOn6yAZDywhQVggUWvM2Zx39zwKB1MfGfs0ZscURC0HFMOFnfokRtJPtzqPvadJoXTL7NkoUPnBYwftxFlkEQdACmoOcT5hbVqNN7A0GEpKyAfqarSfaIIjriZqBN");'
-              ></div>
-              <div class="flex-1">
-                <p class="text-[#0e1a13] text-base font-medium leading-normal">Olivia Carter</p>
-                <p class="text-[#51946c] text-sm font-normal leading-normal">3 months ago</p>
-              </div>
-            </div>
-            <div class="flex gap-0.5">
-              <div class="text-[#38e07b]" data-icon="Star" data-size="20px" data-weight="fill">
-                <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" fill="currentColor" viewBox="0 0 256 256">
-                  <path
-                    d="M234.5,114.38l-45.1,39.36,13.51,58.6a16,16,0,0,1-23.84,17.34l-51.11-31-51,31a16,16,0,0,1-23.84-17.34L66.61,153.8,21.5,114.38a16,16,0,0,1,9.11-28.06l59.46-5.15,23.21-55.36a15.95,15.95,0,0,1,29.44,0h0L166,81.17l59.44,5.15a16,16,0,0,1,9.11,28.06Z"
-                  ></path>
-                </svg>
-              </div>
-              <div class="text-[#38e07b]" data-icon="Star" data-size="20px" data-weight="fill">
-                <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" fill="currentColor" viewBox="0 0 256 256">
-                  <path
-                    d="M234.5,114.38l-45.1,39.36,13.51,58.6a16,16,0,0,1-23.84,17.34l-51.11-31-51,31a16,16,0,0,1-23.84-17.34L66.61,153.8,21.5,114.38a16,16,0,0,1,9.11-28.06l59.46-5.15,23.21-55.36a15.95,15.95,0,0,1,29.44,0h0L166,81.17l59.44,5.15a16,16,0,0,1,9.11,28.06Z"
-                  ></path>
-                </svg>
-              </div>
-              <div class="text-[#38e07b]" data-icon="Star" data-size="20px" data-weight="fill">
-                <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" fill="currentColor" viewBox="0 0 256 256">
-                  <path
-                    d="M234.5,114.38l-45.1,39.36,13.51,58.6a16,16,0,0,1-23.84,17.34l-51.11-31-51,31a16,16,0,0,1-23.84-17.34L66.61,153.8,21.5,114.38a16,16,0,0,1,9.11-28.06l59.46-5.15,23.21-55.36a15.95,15.95,0,0,1,29.44,0h0L166,81.17l59.44,5.15a16,16,0,0,1,9.11,28.06Z"
-                  ></path>
-                </svg>
-              </div>
-              <div class="text-[#38e07b]" data-icon="Star" data-size="20px" data-weight="fill">
-                <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" fill="currentColor" viewBox="0 0 256 256">
-                  <path
-                    d="M234.5,114.38l-45.1,39.36,13.51,58.6a16,16,0,0,1-23.84,17.34l-51.11-31-51,31a16,16,0,0,1-23.84-17.34L66.61,153.8,21.5,114.38a16,16,0,0,1,9.11-28.06l59.46-5.15,23.21-55.36a15.95,15.95,0,0,1,29.44,0h0L166,81.17l59.44,5.15a16,16,0,0,1,9.11,28.06Z"
-                  ></path>
-                </svg>
-              </div>
-              <div class="text-[#b0d4be]" data-icon="Star" data-size="20px" data-weight="regular">
-                <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" fill="currentColor" viewBox="0 0 256 256">
-                  <path
-                    d="M239.2,97.29a16,16,0,0,0-13.81-11L166,81.17,142.72,25.81h0a15.95,15.95,0,0,0-29.44,0L90.07,81.17,30.61,86.32a16,16,0,0,0-9.11,28.06L66.61,153.8,53.09,212.34a16,16,0,0,0,23.84,17.34l51-31,51.11,31a16,16,0,0,0,23.84-17.34l-13.51-58.6,45.1-39.36A16,16,0,0,0,239.2,97.29Zm-15.22,5-45.1,39.36a16,16,0,0,0-5.08,15.71L187.35,216v0l-51.07-31a15.9,15.9,0,0,0-16.54,0l-51,31h0L82.2,157.4a16,16,0,0,0-5.08-15.71L32,102.35a.37.37,0,0,1,0-.09l59.44-5.14a16,16,0,0,0,13.35-9.75L128,32.08l23.2,55.29a16,16,0,0,0,13.35,9.75L224,102.26S224,102.32,224,102.33Z"
-                  ></path>
-                </svg>
-              </div>
-            </div>
-            <p class="text-[#0e1a13] text-base font-normal leading-normal">Good experience overall. The stadium is well-maintained, but the food options could be better.</p>
-            <div class="flex gap-9 text-[#51946c]">
-              <button class="flex items-center gap-2">
-                <div class="text-inherit" data-icon="ThumbsUp" data-size="20px" data-weight="regular">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" fill="currentColor" viewBox="0 0 256 256">
-                    <path
-                      d="M234,80.12A24,24,0,0,0,216,72H160V56a40,40,0,0,0-40-40,8,8,0,0,0-7.16,4.42L75.06,96H32a16,16,0,0,0-16,16v88a16,16,0,0,0,16,16H204a24,24,0,0,0,23.82-21l12-96A24,24,0,0,0,234,80.12ZM32,112H72v88H32ZM223.94,97l-12,96a8,8,0,0,1-7.94,7H88V105.89l36.71-73.43A24,24,0,0,1,144,56V80a8,8,0,0,0,8,8h64a8,8,0,0,1,7.94,9Z"
-                    ></path>
-                  </svg>
-                </div>
-                <p class="text-inherit">3</p>
-              </button>
-              <button class="flex items-center gap-2">
-                <div class="text-inherit" data-icon="ThumbsDown" data-size="20px" data-weight="regular">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" fill="currentColor" viewBox="0 0 256 256">
-                    <path
-                      d="M239.82,157l-12-96A24,24,0,0,0,204,40H32A16,16,0,0,0,16,56v88a16,16,0,0,0,16,16H75.06l37.78,75.58A8,8,0,0,0,120,240a40,40,0,0,0,40-40V184h56a24,24,0,0,0,23.82-27ZM72,144H32V56H72Zm150,21.29a7.88,7.88,0,0,1-6,2.71H152a8,8,0,0,0-8,8v24a24,24,0,0,1-19.29,23.54L88,150.11V56H204a8,8,0,0,1,7.94,7l12,96A7.87,7.87,0,0,1,222,165.29Z"
-                    ></path>
-                  </svg>
-                </div>
-              </button>
-            </div>
-          </div>
-        </div>
-        <h2 class="text-[#0e1a13] text-[22px] font-bold leading-tight tracking-[-0.015em] px-4 pb-3 pt-5">Location</h2>
-        <div class="flex px-4 py-3">
-          <div
-            class="w-full bg-center bg-no-repeat aspect-video bg-cover rounded-xl object-cover"
-            style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDzDF6qXTti4rsfNdSuezhMyeato2Aa4cchbq7Z2JFOC_qdCF0CdGVd-FMeGZLxUvQzidEQjLKP7gAjQIE7QNFJ-sThcXG34aI3pZ9i8DJM7Nq6kcvAWjkvU-xPqX6u7xNKWJowb7QUqvS3JqMFEIZYhi5w4apWxdXye5ozu4utDhajkGTiUnBwZTKPeF6LhdSqxCoZz7gogrMmcpEPU9nz6WD_Ml51MV8bHBuH0oFQBXCTWdGL-rWJHGxnqaMu6IVKgOb779ENGLD1");'
-          ></div>
         </div>
       </div>
-      <div>
-        <div class="flex gap-2 border-t border-[#e8f2ec] bg-[#f8fbfa] px-4 pb-3 pt-2">
-          <a class="just flex flex-1 flex-col items-center justify-end gap-1 text-[#51946c]" href="#">
-            <div class="text-[#51946c] flex h-8 items-center justify-center" data-icon="House" data-size="24px" data-weight="regular">
-              <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" fill="currentColor" viewBox="0 0 256 256">
-                <path
-                  d="M218.83,103.77l-80-75.48a1.14,1.14,0,0,1-.11-.11,16,16,0,0,0-21.53,0l-.11.11L37.17,103.77A16,16,0,0,0,32,115.55V208a16,16,0,0,0,16,16H96a16,16,0,0,0,16-16V160h32v48a16,16,0,0,0,16,16h48a16,16,0,0,0,16-16V115.55A16,16,0,0,0,218.83,103.77ZM208,208H160V160a16,16,0,0,0-16-16H112a16,16,0,0,0-16,16v48H48V115.55l.11-.1L128,40l79.9,75.43.11.1Z"
-                ></path>
-              </svg>
-            </div>
-            <p class="text-[#51946c] text-xs font-medium leading-normal tracking-[0.015em]">Home</p>
-          </a>
-          <a class="just flex flex-1 flex-col items-center justify-end gap-1 rounded-full text-[#0e1a13]" href="#">
-            <div class="text-[#0e1a13] flex h-8 items-center justify-center" data-icon="Compass" data-size="24px" data-weight="fill">
-              <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" fill="currentColor" viewBox="0 0 256 256">
-                <path
-                  d="M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm51.58,57.79-32,64a4.08,4.08,0,0,1-1.79,1.79l-64,32a4,4,0,0,1-5.37-5.37l32-64a4.08,4.08,0,0,1,1.79-1.79l64-32A4,4,0,0,1,179.58,81.79Z"
-                ></path>
-              </svg>
-            </div>
-            <p class="text-[#0e1a13] text-xs font-medium leading-normal tracking-[0.015em]">Explore</p>
-          </a>
-          <a class="just flex flex-1 flex-col items-center justify-end gap-1 text-[#51946c]" href="#">
-            <div class="text-[#51946c] flex h-8 items-center justify-center" data-icon="MagnifyingGlass" data-size="24px" data-weight="regular">
-              <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" fill="currentColor" viewBox="0 0 256 256">
-                <path d="M229.66,218.34l-50.07-50.06a88.11,88.11,0,1,0-11.31,11.31l50.06,50.07a8,8,0,0,0,11.32-11.32ZM40,112a72,72,0,1,1,72,72A72.08,72.08,0,0,1,40,112Z"></path>
-              </svg>
-            </div>
-            <p class="text-[#51946c] text-xs font-medium leading-normal tracking-[0.015em]">Search</p>
-          </a>
-          <a class="just flex flex-1 flex-col items-center justify-end gap-1 text-[#51946c]" href="#">
-            <div class="text-[#51946c] flex h-8 items-center justify-center" data-icon="User" data-size="24px" data-weight="regular">
-              <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" fill="currentColor" viewBox="0 0 256 256">
-                <path
-                  d="M230.92,212c-15.23-26.33-38.7-45.21-66.09-54.16a72,72,0,1,0-73.66,0C63.78,166.78,40.31,185.66,25.08,212a8,8,0,1,0,13.85,8c18.84-32.56,52.14-52,89.07-52s70.23,19.44,89.07,52a8,8,0,1,0,13.85-8ZM72,96a56,56,0,1,1,56,56A56.06,56.06,0,0,1,72,96Z"
-                ></path>
-              </svg>
-            </div>
-            <p class="text-[#51946c] text-xs font-medium leading-normal tracking-[0.015em]">Profile</p>
-          </a>
-        </div>
-        <div class="h-5 bg-[#f8fbfa]"></div>
+
+      <h2 class="text-[#0e1a13] text-[22px] font-bold tracking-[-0.015em] px-4 pb-3 pt-5">About</h2>
+      <div class="px-4 pb-3">
+        <div data-stadium-facts class="text-sm text-[#0e1a13]"></div>
       </div>
+
+      <h2 class="text-[#0e1a13] text-[22px] font-bold tracking-[-0.015em] px-4 pb-3 pt-5">Reviews</h2>
+      <div class="p-4 grid gap-3" data-reviews-list></div>
+
+      <div class="p-4">
+        <form data-review-form class="space-y-3">
+          <div class="mt-2">
+            <div class="flex items-center gap-4">
+              <label class="text-md text-[#395a4c]">Rate your experience</label>
+              <div class="mt-1" data-star-rating data-name="rating" data-initial="0"></div>
+              <!-- <select name="rating" required class=" appearance-none mt-1 w-28 h-10 px-3 rounded-lg border border-[#d1e6d9] bg-white text-md text-teal-400">
+                <option value="" class="text-black" disabled selected>Select</option>
+                <option value="5">★★★★★ 5</option>
+                <option value="4">★★★★☆ 4</option>
+                <option value="3">★★★☆☆ 3</option>
+                <option value="2">★★☆☆☆ 2</option>
+                <option value="1">★☆☆☆☆ 1</option>
+              </select> -->
+            </div>
+          </div>
+          <textarea name="text" required placeholder="Share your experience…" class="w-full h-28 px-3 py-2 rounded-lg border border-[#d1e6d9] bg-white text-sm text-[#0e1a13]"></textarea>
+          
+          <button type="submit" class="w-full md:w-auto h-10 px-4 rounded-lg bg-[#0e1a13] text-white text-sm font-semibold">Post Review</button>
+        </form>
+      </div>
+
+      <!-- <h2 class="text-[#0e1a13] text-[22px] font-bold tracking-[-0.015em] px-4 pb-3 pt-5">Location</h2>
+      <div class="flex px-4 pb-8">
+        <div class="w-full bg-center bg-no-repeat aspect-video bg-cover rounded-xl object-cover" style='background-image:url("https://lh3.googleusercontent.com/aida-public/AB6AXuDzDF6qXTti4rsfNdSuezhMyeato2Aa4cchbq7Z2JFOC_qdCF0CdGVd-FMeGZLxUvQzidEQjLKP7gAjQIE7QNFJ-sThcXG34aI3pZ9i8DJM7Nq6kcvAWjkvU-xPqX6u7xNKWJowb7QUqvS3JqMFEIZYhi5w4apWxdXye5ozu4utDhajkGTiUnBwZTKPeF6LhdSqxCoZz7gogrMmcpEPU9nz6WD_Ml51MV8bHBuH0oFQBXCTWdGL-rWJHGxnqaMu6IVKgOb779ENGLD1");'></div>
+      </div> -->
     </div>
   </body>
 </html>
