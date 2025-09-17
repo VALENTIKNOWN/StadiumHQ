@@ -76,7 +76,7 @@
   }
 
   function pathName() {
-    return location.pathname.split("/").pop() || "Homepage.html";
+    return location.pathname.split("/").pop() || "index.html";
   }
 
   function ensureAdminLinks() {
@@ -210,7 +210,7 @@
         auth.user = null;
         CSRF_TOKEN = null;
         reflectAuthUI();
-        if (location.pathname.endsWith("Profiles.html")) location.href = "Homepage.html";
+        if (location.pathname.endsWith("Profiles.html")) location.href = "index.html";
       });
     });
   }
@@ -231,7 +231,7 @@
     });
     qa("[data-back]").forEach((btn) =>
       btn.addEventListener("click", () => {
-        if (history.length > 1) history.back(); else location.href = "Homepage.html";
+        if (history.length > 1) history.back(); else location.href = "index.html";
       })
     );
     qa("[data-requires-auth]").forEach(link => {
