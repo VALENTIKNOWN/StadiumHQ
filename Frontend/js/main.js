@@ -1,5 +1,5 @@
 (function () {
-  const API_BASE = window.STADIUM_API_BASE || "http://127.0.0.1:5000";
+  const API_BASE = window.STADIUM_API_BASE || "http://127.0.0.1:8000";
   const q = (s, r = document) => r.querySelector(s);
   const qa = (s, r = document) => Array.from(r.querySelectorAll(s));
   const readParam = (name) => new URLSearchParams(location.search).get(name) || "";
@@ -76,7 +76,7 @@
   }
 
   function pathName() {
-    return location.pathname.split("/").pop() || "index.html";
+    return location.pathname.split("/").pop() || "Homepage.html";
   }
 
   function ensureAdminLinks() {
@@ -210,7 +210,7 @@
         auth.user = null;
         CSRF_TOKEN = null;
         reflectAuthUI();
-        if (location.pathname.endsWith("Profiles.html")) location.href = "index.html";
+        if (location.pathname.endsWith("Profiles.html")) location.href = "Homepage.html";
       });
     });
   }
@@ -231,7 +231,7 @@
     });
     qa("[data-back]").forEach((btn) =>
       btn.addEventListener("click", () => {
-        if (history.length > 1) history.back(); else location.href = "index.html";
+        if (history.length > 1) history.back(); else location.href = "Homepage.html";
       })
     );
     qa("[data-requires-auth]").forEach(link => {
@@ -557,7 +557,6 @@
   }
 
   function initUploads() {
-    // Avatar upload (static element on Profile page)
     const avatarInput = q("[data-avatar-input]");
     if (avatarInput) {
       avatarInput.addEventListener("change", async () => {
@@ -573,88 +572,78 @@
         } catch (e) {}
       });
     }
-  
-    // ===== Admin page: DELEGATED handlers for dynamically-rendered controls =====
-  
-    // 1) Create stadium from Wikipedia query
-    document.addEventListener("submit", async (e) => {
-      const form = e.target.closest("[data-admin-wiki-create]");
-      if (!form) return;
-      e.preventDefault();
-      const btn = form.querySelector('button[type="submit"]');
-      btn && (btn.disabled = true);
-      try {
-        const query = new FormData(form).get("query");
+
+    const wikiCreate = q("[data-admin-wiki-create]");
+    if (wikiCreate) {
+      wikiCreate.addEventListener("submit", async (e) => {
+        e.preventDefault();
+        const query = new FormData(wikiCreate).get("query");
         if (!query) return;
-        await apiPost(`/api/admin/stadiums?name=${encodeURIComponent(query)}`);
-        location.reload();
-      } catch (_) {
-      } finally {
-        btn && (btn.disabled = false);
-      }
-    });
-  
-    // 2) Update stadium (multiple forms)
-    document.addEventListener("submit", async (e) => {
-      const form = e.target.closest("[data-admin-stadium-update]");
-      if (!form) return;
-      e.preventDefault();
-      const sid = form.getAttribute("data-id") || "";
-      if (!sid) return;
-      const btn = form.querySelector('button[type="submit"]');
-      btn && (btn.disabled = true);
-      try {
-        if ((form.enctype || "").toLowerCase().includes("multipart/form-data")) {
-          const fd = new FormData(form);
-          await apiUpload(`/api/admin/stadiums/${encodeURIComponent(sid)}`, fd, "PUT");
-        } else {
-          const body = Object.fromEntries(new FormData(form).entries());
-          await apiPut(`/api/admin/stadiums/${encodeURIComponent(sid)}`, body);
-        }
-        location.reload();
-      } catch (_) {
-      } finally {
-        btn && (btn.disabled = false);
-      }
-    });
-  
-    // 3) Upload gallery images (multiple forms)
-    document.addEventListener("submit", async (e) => {
-      const form = e.target.closest("[data-admin-stadium-gallery]");
-      if (!form) return;
-      e.preventDefault();
-      const sid = form.getAttribute("data-id") || "";
-      if (!sid) return;
-      const btn = form.querySelector('button[type="submit"]');
-      btn && (btn.disabled = true);
-      try {
+        try {
+          await apiPost(`/api/admin/stadiums?name=${encodeURIComponent(query)}`);
+          location.reload();
+        } catch (e2) {}
+      });
+    }
+
+    qa("[data-admin-stadium-gallery]").forEach(form => {
+      form.addEventListener("submit", async (e) => {
+        e.preventDefault();
+        const sid = form.getAttribute("data-id") || "";
+        if (!sid) return;
         const fd = new FormData(form);
-        await apiUpload(`/api/admin/stadiums/${encodeURIComponent(sid)}/images`, fd, "POST");
-        location.reload();
-      } catch (_) {
-      } finally {
-        btn && (btn.disabled = false);
-      }
+        try {
+          await apiUpload(`/api/admin/stadiums/${encodeURIComponent(sid)}/images`, fd, "POST");
+          location.reload();
+        } catch (e3) {}
+      });
     });
-  
-    // 4) Delete stadium (multiple buttons)
-    document.addEventListener("click", async (e) => {
-      const btn = e.target.closest("[data-admin-stadium-delete]");
-      if (!btn) return;
-      e.preventDefault();
-      const sid = btn.getAttribute("data-id") || "";
-      if (!sid) return;
-      btn.disabled = true;
-      try {
-        await apiDelete(`/api/admin/stadiums/${encodeURIComponent(sid)}`);
-        // Remove the card instantly; no need to reload if you prefer
-        const card = btn.closest(".rounded-xl.border");
-        if (card) card.remove();
-        // Or call location.reload() to refresh everything
-        // location.reload();
-      } catch (_) {
-        btn.disabled = false;
-      }
+
+    const adminCreateLegacy = q("[data-admin-stadium-form]");
+    if (adminCreateLegacy) {
+      adminCreateLegacy.addEventListener("submit", async (e) => {
+        e.preventDefault();
+        const isMultipart = adminCreateLegacy.enctype === "multipart/form-data";
+        try {
+          if (isMultipart) {
+            const fd = new FormData(adminCreateLegacy);
+            await apiUpload("/api/admin/stadiums", fd, "POST");
+          } else {
+            await apiPost("/api/admin/stadiums", Object.fromEntries(new FormData(adminCreateLegacy).entries()));
+          }
+          location.reload();
+        } catch (e) {}
+      });
+    }
+
+    const adminUpdate = q("[data-admin-stadium-update]");
+    if (adminUpdate) {
+      adminUpdate.addEventListener("submit", async (e) => {
+        e.preventDefault();
+        const sid = adminUpdate.getAttribute("data-id") || "";
+        const isMultipart = adminUpdate.enctype === "multipart/form-data";
+        if (!sid) return;
+        try {
+          if (isMultipart) {
+            const fd = new FormData(adminUpdate);
+            await apiUpload(`/api/admin/stadiums/${encodeURIComponent(sid)}`, fd, "PUT");
+          } else {
+            await apiPut(`/api/admin/stadiums/${encodeURIComponent(sid)}`, Object.fromEntries(new FormData(adminUpdate).entries()));
+          }
+          location.reload();
+        } catch (e) {}
+      });
+    }
+
+    qa("[data-admin-stadium-delete]").forEach(btn => {
+      btn.addEventListener("click", async () => {
+        const sid = btn.getAttribute("data-id") || "";
+        if (!sid) return;
+        try {
+          await apiDelete(`/api/admin/stadiums/${encodeURIComponent(sid)}`);
+          location.reload();
+        } catch (e) {}
+      });
     });
   }
 
