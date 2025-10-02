@@ -1,0 +1,36 @@
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>StadiumHQ</title>
+  <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?display=swap&family=Noto+Sans:wght@400;500;700;900&family=Spline+Sans:wght@400;500;700">
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+</head>
+<body class="bg-[#f8fbfa] font-sans text-[#0e1a13]">
+  <header class="bg-[#f8fbfa] border-b border-[#e8f2ec]">
+  <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
+    <a href="{{ url_for('index') }}" class="text-[#0e1a13] text-xl font-black">StadiumHQ</a>
+    <nav class="flex items-center gap-5 text-sm">
+      <a href="{{ url_for('index') }}" class="text-[#0e1a13] hover:text-[#38e07b]">Home</a>
+      <a href="{{ url_for('map_page') }}" class="text-[#0e1a13] hover:text-[#38e07b]">Map</a>
+      <a href="{{ url_for('search') }}" class="text-[#0e1a13] hover:text-[#38e07b]">Search</a>
+      <a href="{{ url_for('reviews') }}" class="text-[#0e1a13] hover:text-[#38e07b]">Reviews</a>
+      <a href="{{ url_for('profiles', username='guest') }}" class="text-[#0e1a13] hover:text-[#38e07b]">Profile</a>
+    </nav>
+  </div>
+</header>
+  <main class="max-w-3xl mx-auto px-4 py-6">
+    <h1 class="text-2xl font-bold">Reviews</h1>
+    <div class="space-y-4 mt-4">
+      {% for r in reviews %}
+      <div class="border p-4 bg-white rounded-lg">
+        <p class="font-bold">{{ r.user }} · {{ r.rating }}⭐</p>
+        <p class="mt-1">{{ r.text }}</p>
+        <p class="text-[#51946c] mt-1">👍 {{ r.likes }}</p>
+      </div>
+      {% endfor %}
+    </div>
+  </main>
+</body>
+</html>

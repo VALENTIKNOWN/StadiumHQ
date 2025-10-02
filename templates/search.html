@@ -1,0 +1,47 @@
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>StadiumHQ</title>
+  <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?display=swap&family=Noto+Sans:wght@400;500;700;900&family=Spline+Sans:wght@400;500;700">
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+</head>
+<body class="bg-[#f8fbfa] font-sans text-[#0e1a13]">
+  <header class="bg-[#f8fbfa] border-b border-[#e8f2ec]">
+  <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
+    <a href="{{ url_for('index') }}" class="text-[#0e1a13] text-xl font-black">StadiumHQ</a>
+    <nav class="flex items-center gap-5 text-sm">
+      <a href="{{ url_for('index') }}" class="text-[#0e1a13] hover:text-[#38e07b]">Home</a>
+      <a href="{{ url_for('map_page') }}" class="text-[#0e1a13] hover:text-[#38e07b]">Map</a>
+      <a href="{{ url_for('search') }}" class="text-[#0e1a13] hover:text-[#38e07b]">Search</a>
+      <a href="{{ url_for('reviews') }}" class="text-[#0e1a13] hover:text-[#38e07b]">Reviews</a>
+      <a href="{{ url_for('profiles', username='guest') }}" class="text-[#0e1a13] hover:text-[#38e07b]">Profile</a>
+    </nav>
+  </div>
+</header>
+  <main class="max-w-6xl mx-auto px-4 py-8">
+    <h1 class="text-2xl font-bold">Search Results</h1>
+    <section class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-4">
+      {% for r in results %}
+      <article class="rounded-2xl bg-white shadow-sm border border-[#e8f2ec] overflow-hidden">
+        {% if r.original_image or r.image %}
+          <div class="aspect-[16/9] w-full bg-[#e8f2ec]">
+            <img src="{{ r.original_image or r.image }}" alt="{{ r.title }}" class="w-full h-full object-cover">
+          </div>
+        {% endif %}
+        <div class="p-4 space-y-2">
+          <div class="flex items-center gap-2">
+            <span class="inline-block text-xs px-2 py-1 rounded-full bg-[#e8f2ec] text-[#0e1a13]">{{ r.description or 'Stadium' }}</span>
+            {% if r.lang %}<span class="inline-block text-xs px-2 py-1 rounded-full bg-[#f0faf3] text-[#51946c]">Lang: {{ r.lang }}</span>{% endif %}
+          </div>
+          <h2 class="text-lg font-bold">{{ r.title }}</h2>
+          <p class="text-sm text-[#2b4a38] line-clamp-3">{{ r.extract or 'No summary available.' }}</p>
+          <a href="{{ url_for('details', stadium_name=r.title) }}" class="text-sm font-semibold text-[#0e1a13] hover:text-[#38e07b]">View details →</a>
+        </div>
+      </article>
+      {% endfor %}
+    </section>
+  </main>
+</body>
+</html>
