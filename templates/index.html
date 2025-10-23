@@ -43,7 +43,7 @@
           <div class="flex items-center justify-between pt-1">
             {% if s.coordinates %}
               <div class="text-xs text-[#51946c]">
-                {'{'} s.coordinates.lat {'}'}, {'{'} s.coordinates.lon {'}'}
+                {{ '%.5f'|format(s.coordinates.lat) }}, {{ '%.5f'|format(s.coordinates.lon) }}
               </div>
             {% else %}
               <div></div>

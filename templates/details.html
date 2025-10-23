@@ -40,16 +40,18 @@
           <h2 class="font-bold mb-3">Quick facts</h2>
           <dl class="text-sm space-y-2">
             {% if stadium.coordinates %}
-            <div class="flex justify-between gap-3">
-              <dt class="text-[#51946c]">Coordinates</dt>
-              <dd class="text-right">{'{'} stadium.coordinates.lat {'}'}, {'{'} stadium.coordinates.lon {'}'}</dd>
-            </div>
+              <div class="flex justify-between gap-3">
+                <dt class="text-[#51946c]">Coordinates</dt>
+                <dd class="text-right">
+                  {{ '%.5f'|format(stadium.coordinates.lat) }}, {{ '%.5f'|format(stadium.coordinates.lon) }}
+                </dd>
+              </div>
             {% endif %}
             {% if stadium.lang %}
-            <div class="flex justify-between gap-3">
-              <dt class="text-[#51946c]">Language</dt>
-              <dd class="text-right">{'{'} stadium.lang {'}'}</dd>
-            </div>
+              <div class="flex justify-between gap-3">
+                <dt class="text-[#51946c]">Language</dt>
+                <dd class="text-right">{{ stadium.lang }}</dd>
+              </div>
             {% endif %}
             <div class="flex justify-between gap-3">
               <dt class="text-[#51946c]">Source</dt>

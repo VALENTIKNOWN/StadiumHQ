@@ -55,8 +55,16 @@ def get_wiki_summary(title):
 
     details = _query_details(page_title) or {}
 
-    coords = (details.get("coordinates") or [{}])[0] if details.get("coordinates") else None
-
+    coords_raw = (details.get("coordinates") or [{}])[0] if details.get("coordinates") else None
+    coords = None
+    if coords_raw and "lat" in coords_raw and "lon" in coords_raw:
+        try:
+            coords = {
+                "lat": float(coords_raw["lat"]),
+                "lon": float(coords_raw["lon"]),
+            }
+        except Exception:
+            coords = None
     image = (data_sum.get("thumbnail") or {}).get("source", "")
     original_image = ""
     if details.get("original"):
